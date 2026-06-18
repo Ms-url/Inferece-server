@@ -21,6 +21,7 @@ add_executable(yolo_server
     src/OnnxYoloInfr.cpp
     src/MainReactor.cpp
     src/FdThreadPool.cpp
+    src/ThreadDecoder.cpp
 )
 
 target_link_libraries(yolo_server

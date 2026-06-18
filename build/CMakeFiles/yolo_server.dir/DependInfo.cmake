@@ -8,10 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/zzm/lym_c/project_yolo_server_1/src/FdThreadPool.cpp" "CMakeFiles/yolo_server.dir/src/FdThreadPool.cpp.o" "gcc" "CMakeFiles/yolo_server.dir/src/FdThreadPool.cpp.o.d"
-  "/home/zzm/lym_c/project_yolo_server_1/src/MainReactor.cpp" "CMakeFiles/yolo_server.dir/src/MainReactor.cpp.o" "gcc" "CMakeFiles/yolo_server.dir/src/MainReactor.cpp.o.d"
-  "/home/zzm/lym_c/project_yolo_server_1/src/OnnxYoloInfr.cpp" "CMakeFiles/yolo_server.dir/src/OnnxYoloInfr.cpp.o" "gcc" "CMakeFiles/yolo_server.dir/src/OnnxYoloInfr.cpp.o.d"
-  "/home/zzm/lym_c/project_yolo_server_1/src/main.cpp" "CMakeFiles/yolo_server.dir/src/main.cpp.o" "gcc" "CMakeFiles/yolo_server.dir/src/main.cpp.o.d"
+  "/home/zzm/lym_c/project_yolo_server/src/FdThreadPool.cpp" "CMakeFiles/yolo_server.dir/src/FdThreadPool.cpp.o" "gcc" "CMakeFiles/yolo_server.dir/src/FdThreadPool.cpp.o.d"
+  "/home/zzm/lym_c/project_yolo_server/src/MainReactor.cpp" "CMakeFiles/yolo_server.dir/src/MainReactor.cpp.o" "gcc" "CMakeFiles/yolo_server.dir/src/MainReactor.cpp.o.d"
+  "/home/zzm/lym_c/project_yolo_server/src/OnnxYoloInfr.cpp" "CMakeFiles/yolo_server.dir/src/OnnxYoloInfr.cpp.o" "gcc" "CMakeFiles/yolo_server.dir/src/OnnxYoloInfr.cpp.o.d"
+  "/home/zzm/lym_c/project_yolo_server/src/ThreadDecoder.cpp" "CMakeFiles/yolo_server.dir/src/ThreadDecoder.cpp.o" "gcc" "CMakeFiles/yolo_server.dir/src/ThreadDecoder.cpp.o.d"
+  "/home/zzm/lym_c/project_yolo_server/src/main.cpp" "CMakeFiles/yolo_server.dir/src/main.cpp.o" "gcc" "CMakeFiles/yolo_server.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

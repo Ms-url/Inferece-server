@@ -10,7 +10,7 @@
 #include <set>
 #include <mutex>
 #include <opencv2/opencv.hpp>
-#include "OnnxYoloInfr.h"
+#include "ThreadDecoder.h"
 
 class MainReactor
 {
@@ -26,7 +26,7 @@ private:
 
     std::map<int, std::vector<uint8_t>> connectionBuffers_; // <fd, buffer>
 
-    OnnxYoloInfr* onnx_yolo_;
+    ThreadDecoder* th_decoder;
 
     std::mutex conn_mtx_;
     std::set<int> conn_fds_; // 保存客户端 fd
@@ -40,7 +40,7 @@ private:
     bool findValidNALU(int fd, uint32_t& out_len, size_t& out_offset);
 
 public:
-    MainReactor(OnnxYoloInfr* oy , int port );
+    MainReactor(ThreadDecoder* td , int port );
     ~MainReactor();
     void init(); // 初始化
     void run(); // epoll线程：accpet连接，注册事件到从Reactor

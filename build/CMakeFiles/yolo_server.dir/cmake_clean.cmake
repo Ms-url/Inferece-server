@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/yolo_server.dir/src/MainReactor.cpp.o.d"
   "CMakeFiles/yolo_server.dir/src/OnnxYoloInfr.cpp.o"
   "CMakeFiles/yolo_server.dir/src/OnnxYoloInfr.cpp.o.d"
+  "CMakeFiles/yolo_server.dir/src/ThreadDecoder.cpp.o"
+  "CMakeFiles/yolo_server.dir/src/ThreadDecoder.cpp.o.d"
   "CMakeFiles/yolo_server.dir/src/main.cpp.o"
   "CMakeFiles/yolo_server.dir/src/main.cpp.o.d"
   "yolo_server"

@@ -1,3 +1,3 @@
-/home/zzm/lym_c/project_yolo_server_1/build/CMakeFiles/yolo_server.dir
-/home/zzm/lym_c/project_yolo_server_1/build/CMakeFiles/edit_cache.dir
-/home/zzm/lym_c/project_yolo_server_1/build/CMakeFiles/rebuild_cache.dir
+/home/zzm/lym_c/project_yolo_server/build/CMakeFiles/yolo_server.dir
+/home/zzm/lym_c/project_yolo_server/build/CMakeFiles/edit_cache.dir
+/home/zzm/lym_c/project_yolo_server/build/CMakeFiles/rebuild_cache.dir

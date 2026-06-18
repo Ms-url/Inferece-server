@@ -1,7 +1,7 @@
 #include "MainReactor.h"
 #include "Logger.h"
 
-MainReactor::MainReactor(OnnxYoloInfr* oy, int port) :port_(port), onnx_yolo_(oy)
+MainReactor::MainReactor(ThreadDecoder* td, int port) :port_(port), th_decoder(td)
 {
     // 初始化日志系统
     Logger& logger = Logger::getInstance();
@@ -200,13 +200,13 @@ void MainReactor::readHandled(int fd){
             buffer.insert(buffer.end(), temp_buf, temp_buf + ret);
         } else if (ret == 0) {
             std::cout << "连接关闭: fd=" << fd << std::endl;
-            onnx_yolo_->removeFd(fd);
+            th_decoder->removeFd(fd);
             removeFd(fd);
             break;
         } else {
             if (errno != EAGAIN && errno != EWOULDBLOCK) {
                 std::cerr << "读取错误: fd=" << fd << std::endl;
-                onnx_yolo_->removeFd(fd);
+                th_decoder->removeFd(fd);
                 removeFd(fd);
                 return;
             }
@@ -215,7 +215,7 @@ void MainReactor::readHandled(int fd){
     }
     
     if (!buffer.empty()) {
-        onnx_yolo_->decodeTaskAdd(fd, buffer);
+        th_decoder->decodeTaskAdd(fd, buffer);
     }
 }
 
@@ -238,7 +238,7 @@ void MainReactor::run(){
             if (events[i].events & (EPOLLERR | EPOLLHUP)) {
                 LOG_WARNING("fd %d: error or hangup", fd);
                 if (fd != server_fd_) {
-                    onnx_yolo_->removeFd(fd);
+                    th_decoder->removeFd(fd);
                     removeFd(fd);
                 }
                 continue;

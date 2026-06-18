@@ -1,13 +1,15 @@
 #include "MainReactor.h"
 #include "OnnxYoloInfr.h"
+#include "ThreadDecoder.h"
 
 int main(){
 
     int port=8888;
-    const char* model_path = "/home/zzm/lym_c/project_yolo_server_1/yolov8s.onnx";
+    const char* model_path = "/home/zzm/lym_c/project_yolo_server/yolov8s.onnx";
 
-    OnnxYoloInfr yoloInf(model_path);
-    MainReactor main_reactor(&yoloInf, port);
+    ThreadDecoder thread_decoder;
+    OnnxYoloInfr yoloInf(model_path, &thread_decoder);
+    MainReactor main_reactor(&thread_decoder, port);
 
     main_reactor.init();
     

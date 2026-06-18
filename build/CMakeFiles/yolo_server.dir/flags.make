@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DDEBUG
 
-CXX_INCLUDES = -I/home/zzm/lym_c/project_yolo_server_1/include -I/home/zzm/anaconda3/envs/lymc/include/onnxruntime/core/session -isystem /usr/local/include/opencv4
+CXX_INCLUDES = -I/home/zzm/lym_c/project_yolo_server/include -I/home/zzm/anaconda3/envs/lymc/include/onnxruntime/core/session -isystem /usr/local/include/opencv4
 
 CXX_FLAGS = -std=gnu++17
 
