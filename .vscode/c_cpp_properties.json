@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                // "/usr/local/include/opencv4/**",
+                // "/usr/local/share/**",
+                // "/usr/local/lib/**",
+                "/home/zzm/anaconda3/envs/lymc/include/**",
+                "/home/zzm/anaconda3/envs/lymc/include/opencv4/**",
+                "/home/zzm/anaconda3/envs/lymc/include/onnxruntime/**"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

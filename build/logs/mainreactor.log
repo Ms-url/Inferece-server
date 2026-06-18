@@ -1,0 +1,976 @@
+[2026-06-18 19:22:09.716] [DEBUG] [1025752] ========================================
+[2026-06-18 19:22:09.716] [INFO] [1025752] MainReactor started with port: 8888
+[2026-06-18 19:22:09.716] [INFO] [1025752] Log level: DEBUG
+[2026-06-18 19:22:09.716] [DEBUG] [1025752] ========================================
+[2026-06-18 19:22:09.716] [INFO] [1025752] Initializing MainReactor on port 8888
+[2026-06-18 19:22:09.716] [DEBUG] [1025752] Socket created successfully, fd: 4
+[2026-06-18 19:22:09.716] [DEBUG] [1025752] Bind successful on port 8888
+[2026-06-18 19:22:09.716] [DEBUG] [1025752] Server socket set to non-blocking mode
+[2026-06-18 19:22:09.716] [INFO] [1025752] MainReactor listening on port 8888
+[2026-06-18 19:22:09.716] [INFO] [1025752] Starting OnnxYoloInfr worker threads
+[2026-06-18 19:22:09.716] [DEBUG] [1025752] Starting dynamic batch inference thread
+[2026-06-18 19:22:09.716] [INFO] [1025752] OnnxYoloInfr worker threads all started successfully
+[2026-06-18 19:22:09.716] [INFO] [1025752] MainReactor run started
+[2026-06-18 19:22:09.717] [INFO] [1025752] Dynamic batch inference thread started
+[2026-06-18 19:22:16.867] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:16.867] [DEBUG] [1025752] Accept event on server fd
+[2026-06-18 19:22:16.867] [DEBUG] [1025752] Handling accept
+[2026-06-18 19:22:16.867] [DEBUG] [1025752] Adding fd 6 to epoll
+[2026-06-18 19:22:16.867] [DEBUG] [1025752] fd 6 added to epoll successfully
+[2026-06-18 19:22:16.867] [INFO] [1025752] Accepted connection from 172.22.104.202, fd: 6
+[2026-06-18 19:22:19.173] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.173] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.173] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.173] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.173] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.178] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.178] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.178] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.178] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.178] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.178] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.178] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Processing buffer, size: 5853 bytes
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Processing buffer, size: 7313 bytes
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Processing buffer, size: 8773 bytes
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Processing buffer, size: 10233 bytes
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Processing buffer, size: 11693 bytes
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Processing buffer, size: 13153 bytes
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.179] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.182] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.182] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.182] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.182] [DEBUG] [1025752] fd 6: Processing buffer, size: 14613 bytes
+[2026-06-18 19:22:19.182] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.182] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Processing buffer, size: 16073 bytes
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Processing buffer, size: 17533 bytes
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Processing buffer, size: 18993 bytes
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] fd 6: Processing buffer, size: 19900 bytes
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] Decoding NALU, data size: 19887 bytes
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] Decoder not initialized, initializing now
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] Initializing H.264 decoder
+[2026-06-18 19:22:19.183] [INFO] [1025752] fd 6: Allocating new decoder
+[2026-06-18 19:22:19.183] [INFO] [1025752] fd 6: Decoder allocated successfully, total decoders: 1
+[2026-06-18 19:22:19.183] [DEBUG] [1025752] ===========Received SPS (Sequence Parameter Set)
+[2026-06-18 19:22:19.185] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.185] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.185] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.185] [DEBUG] [1025752] fd 6: Removed 19900 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.185] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.193] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.193] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.193] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.194] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.196] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.196] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.218] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.219] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.219] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.219] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.219] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.222] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.222] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.222] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.222] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.222] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.222] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.222] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.222] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.222] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.222] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.222] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.222] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.223] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.223] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.223] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.223] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.223] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.223] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.223] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.223] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.223] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.223] [DEBUG] [1025752] fd 6: Processing buffer, size: 6091 bytes
+[2026-06-18 19:22:19.223] [DEBUG] [1025752] Decoding NALU, data size: 6078 bytes
+[2026-06-18 19:22:19.223] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.224] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.224] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.224] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.224] [DEBUG] [1025752] fd 6: Removed 6091 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.241] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.241] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.241] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.241] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.242] [INFO] [1025752] Image 0: 9 detections before NMS
+[2026-06-18 19:22:19.242] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.242] [DEBUG] [1025752] NMS: processing 9 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.242] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.242] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.242] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.250] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.250] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.250] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.251] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.253] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.253] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.266] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.266] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.266] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.266] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.266] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] fd 6: Processing buffer, size: 5829 bytes
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] Decoding NALU, data size: 5816 bytes
+[2026-06-18 19:22:19.268] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.269] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.269] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.269] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.270] [DEBUG] [1025752] fd 6: Removed 5829 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.295] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.295] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.295] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.295] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.296] [INFO] [1025752] Image 0: 9 detections before NMS
+[2026-06-18 19:22:19.296] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.296] [DEBUG] [1025752] NMS: processing 9 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.296] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.296] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.296] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.304] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.304] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.304] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.304] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.306] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.306] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.312] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.312] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.312] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.312] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.312] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.313] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.313] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.313] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.313] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.313] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.313] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.314] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.314] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.314] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.314] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.314] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.314] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.315] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.315] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.315] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.315] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.315] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.315] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.315] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.315] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.315] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.315] [DEBUG] [1025752] fd 6: Processing buffer, size: 5616 bytes
+[2026-06-18 19:22:19.315] [DEBUG] [1025752] Decoding NALU, data size: 5603 bytes
+[2026-06-18 19:22:19.315] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.316] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.316] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.316] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.316] [DEBUG] [1025752] fd 6: Removed 5616 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.344] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.344] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.344] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.344] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.344] [INFO] [1025752] Image 0: 9 detections before NMS
+[2026-06-18 19:22:19.344] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.344] [DEBUG] [1025752] NMS: processing 9 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.344] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.344] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.344] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.352] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.352] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.352] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.353] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.355] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.355] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.358] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.358] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.358] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.358] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.358] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Processing buffer, size: 5853 bytes
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Processing buffer, size: 7313 bytes
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] fd 6: Processing buffer, size: 8557 bytes
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] Decoding NALU, data size: 8544 bytes
+[2026-06-18 19:22:19.361] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.363] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.363] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.363] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.363] [DEBUG] [1025752] fd 6: Removed 8557 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.391] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.391] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.391] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.391] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.392] [INFO] [1025752] Image 0: 9 detections before NMS
+[2026-06-18 19:22:19.392] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.392] [DEBUG] [1025752] NMS: processing 9 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.392] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.392] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.392] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.400] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.400] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.400] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.401] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.402] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.402] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.405] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.405] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.405] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.405] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.405] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Processing buffer, size: 5853 bytes
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Processing buffer, size: 7313 bytes
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Processing buffer, size: 8773 bytes
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Processing buffer, size: 10233 bytes
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] fd 6: Processing buffer, size: 10800 bytes
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] Decoding NALU, data size: 10787 bytes
+[2026-06-18 19:22:19.409] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.411] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.411] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.411] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.412] [DEBUG] [1025752] fd 6: Removed 10800 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.439] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.439] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.439] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.439] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.440] [INFO] [1025752] Image 0: 11 detections before NMS
+[2026-06-18 19:22:19.440] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.440] [DEBUG] [1025752] NMS: processing 11 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.440] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.440] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.440] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.448] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.448] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.448] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.448] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.449] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.449] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.452] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.452] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.452] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.452] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.452] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Processing buffer, size: 5853 bytes
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Processing buffer, size: 7313 bytes
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] fd 6: Processing buffer, size: 8007 bytes
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] Decoding NALU, data size: 7994 bytes
+[2026-06-18 19:22:19.458] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.459] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.459] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.459] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.459] [DEBUG] [1025752] fd 6: Removed 8007 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.483] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.483] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.483] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.483] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.484] [INFO] [1025752] Image 0: 9 detections before NMS
+[2026-06-18 19:22:19.484] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.484] [DEBUG] [1025752] NMS: processing 9 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.484] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.484] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.484] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.492] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.492] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.492] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.492] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.493] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.493] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.498] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.498] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.498] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.498] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.498] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Processing buffer, size: 5853 bytes
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] fd 6: Processing buffer, size: 7781 bytes
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] Decoding NALU, data size: 7768 bytes
+[2026-06-18 19:22:19.501] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.503] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.503] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.503] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.503] [DEBUG] [1025752] fd 6: Removed 7781 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.527] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.527] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.527] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.527] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.528] [INFO] [1025752] Image 0: 9 detections before NMS
+[2026-06-18 19:22:19.528] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.528] [DEBUG] [1025752] NMS: processing 9 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.528] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.528] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.528] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.536] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.536] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.536] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.536] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.538] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.538] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.545] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.545] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.545] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.545] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Processing buffer, size: 5853 bytes
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Processing buffer, size: 7313 bytes
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] fd 6: Processing buffer, size: 7817 bytes
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] Decoding NALU, data size: 7804 bytes
+[2026-06-18 19:22:19.546] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.547] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.547] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.547] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.547] [DEBUG] [1025752] fd 6: Removed 7817 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.574] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.574] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.574] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.574] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.575] [INFO] [1025752] Image 0: 10 detections before NMS
+[2026-06-18 19:22:19.575] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.575] [DEBUG] [1025752] NMS: processing 10 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.575] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.575] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.575] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.583] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.583] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.583] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.584] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.585] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.585] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.591] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Processing buffer, size: 5853 bytes
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Processing buffer, size: 7313 bytes
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] fd 6: Processing buffer, size: 7778 bytes
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] Decoding NALU, data size: 7765 bytes
+[2026-06-18 19:22:19.592] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.593] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.593] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.593] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.593] [DEBUG] [1025752] fd 6: Removed 7778 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.622] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.622] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.622] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.622] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.623] [INFO] [1025752] Image 0: 10 detections before NMS
+[2026-06-18 19:22:19.623] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.623] [DEBUG] [1025752] NMS: processing 10 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.623] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.623] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.623] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.631] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.631] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.631] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.632] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.633] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.633] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.651] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.651] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.651] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.651] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.651] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.651] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.651] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.651] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.651] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.651] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.651] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Processing buffer, size: 5853 bytes
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] fd 6: Processing buffer, size: 7471 bytes
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] Decoding NALU, data size: 7458 bytes
+[2026-06-18 19:22:19.652] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.653] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.653] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.653] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.654] [DEBUG] [1025752] fd 6: Removed 7471 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.669] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.669] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.669] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.669] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.670] [INFO] [1025752] Image 0: 10 detections before NMS
+[2026-06-18 19:22:19.670] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.670] [DEBUG] [1025752] NMS: processing 10 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.670] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.670] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.670] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.678] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.678] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.678] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.678] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.679] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.679] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.681] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.681] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.682] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.683] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.683] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.683] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.683] [DEBUG] [1025752] fd 6: Processing buffer, size: 5853 bytes
+[2026-06-18 19:22:19.683] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.683] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.683] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.683] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.683] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.683] [DEBUG] [1025752] fd 6: Processing buffer, size: 7179 bytes
+[2026-06-18 19:22:19.683] [DEBUG] [1025752] Decoding NALU, data size: 7166 bytes
+[2026-06-18 19:22:19.683] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.684] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.684] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.684] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.684] [DEBUG] [1025752] fd 6: Removed 7179 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.717] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.717] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.717] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.717] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.717] [INFO] [1025752] Image 0: 10 detections before NMS
+[2026-06-18 19:22:19.717] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.717] [DEBUG] [1025752] NMS: processing 10 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.717] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.717] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.717] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.725] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.725] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.725] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.726] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.727] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.727] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.727] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.727] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.727] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.727] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.727] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.728] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.728] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.728] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.728] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.728] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.728] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.728] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.728] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.728] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.728] [DEBUG] [1025752] fd 6: Processing buffer, size: 3073 bytes
+[2026-06-18 19:22:19.728] [DEBUG] [1025752] Decoding NALU, data size: 3060 bytes
+[2026-06-18 19:22:19.728] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.729] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.729] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.729] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.729] [DEBUG] [1025752] fd 6: Removed 3073 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.766] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.766] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.766] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.766] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.767] [INFO] [1025752] Image 0: 10 detections before NMS
+[2026-06-18 19:22:19.767] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.767] [DEBUG] [1025752] NMS: processing 10 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.767] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.767] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.767] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] fd 6: Processing buffer, size: 3408 bytes
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] Decoding NALU, data size: 3395 bytes
+[2026-06-18 19:22:19.773] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.774] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.774] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.774] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.774] [DEBUG] [1025752] fd 6: Removed 3408 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.775] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.775] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.775] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.776] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.777] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.777] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.810] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.810] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.810] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.810] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.811] [INFO] [1025752] Image 0: 10 detections before NMS
+[2026-06-18 19:22:19.811] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.811] [DEBUG] [1025752] NMS: processing 10 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.811] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.811] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.811] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.819] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.819] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.819] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.819] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.819] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.819] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.819] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.819] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.819] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] fd 6: Processing buffer, size: 4639 bytes
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] Decoding NALU, data size: 4626 bytes
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.820] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.821] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.821] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.821] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.821] [DEBUG] [1025752] fd 6: Removed 4639 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.860] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.860] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.860] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.860] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.860] [INFO] [1025752] Image 0: 10 detections before NMS
+[2026-06-18 19:22:19.860] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.860] [DEBUG] [1025752] NMS: processing 10 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.860] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.860] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.860] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.868] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.868] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.868] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.868] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.868] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.868] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.868] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.868] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Processing buffer, size: 5853 bytes
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] fd 6: Processing buffer, size: 6331 bytes
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] Decoding NALU, data size: 6318 bytes
+[2026-06-18 19:22:19.869] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.870] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.870] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.870] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.870] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.870] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.870] [DEBUG] [1025752] fd 6: Removed 6331 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.904] [DEBUG] [1025752] Inference completed
+[2026-06-18 19:22:19.904] [DEBUG] [1025752] Starting post-processing
+[2026-06-18 19:22:19.904] [DEBUG] [1025752] Starting postprocess with 1 images
+[2026-06-18 19:22:19.904] [DEBUG] [1025752] Output shape: batch=1, classes=80, anchors=8400
+[2026-06-18 19:22:19.904] [INFO] [1025752] Image 0: 11 detections before NMS
+[2026-06-18 19:22:19.904] [DEBUG] [1025752] Postprocess complete
+[2026-06-18 19:22:19.904] [DEBUG] [1025752] NMS: processing 11 detections with IoU threshold 0.45
+[2026-06-18 19:22:19.904] [DEBUG] [1025752] NMS: 1 detections remaining after NMS
+[2026-06-18 19:22:19.904] [INFO] [1025752] Batch inference complete, 1 results queued
+[2026-06-18 19:22:19.904] [DEBUG] [1025752] Received frame from queue, fd: 6
+[2026-06-18 19:22:19.912] [DEBUG] [1025752] Triggering inference: timeout with 1 frames in buffer
+[2026-06-18 19:22:19.912] [INFO] [1025752] Starting batch inference
+[2026-06-18 19:22:19.912] [DEBUG] [1025752] Processing batch of size 1
+[2026-06-18 19:22:19.912] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: Processing buffer, size: 13 bytes
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] Allocated input tensor of size 1228800
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: Processing buffer, size: 1473 bytes
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: Processing buffer, size: 2933 bytes
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.913] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] fd 6: Processing buffer, size: 4393 bytes
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] fd 6: Processing buffer, size: 5853 bytes
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] fd 6: Incomplete NALU, waiting for more data
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] fd 6: Buffer has data but no complete NALU found, waiting for more data
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] fd 6: data received
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] fd 6: Adding decode task to thread pool
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] fd 6: Processing buffer, size: 6329 bytes
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] Decoding NALU, data size: 6316 bytes
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] ===========Received non-IDR frame
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] Preprocessed 1 images
+[2026-06-18 19:22:19.914] [DEBUG] [1025752] Running ONNX inference
+[2026-06-18 19:22:19.915] [DEBUG] [1025752] Received decoded frame #1, size: 640x480
+[2026-06-18 19:22:19.915] [DEBUG] [1025752] fd 6: SWS context created for 640x480
+[2026-06-18 19:22:19.915] [DEBUG] [1025752] Decoded 1 frames from NALU
+[2026-06-18 19:22:19.915] [DEBUG] [1025752] fd 6: Removed 6329 bytes from buffer, 0 bytes remaining, processed 1 NALUs, skipped 0 bytes
+[2026-06-18 19:22:19.944] [DEBUG] [1025752] epoll_wait returned 1 events
+[2026-06-18 19:22:19.944] [WARNING] [1025752] fd 6: error or hangup
+[2026-06-18 19:22:19.944] [INFO] [1025752] Removing fd 6 from OnnxYoloInfr
+[2026-06-18 19:22:19.944] [DEBUG] [1025752] debug point 1
+[2026-06-18 19:22:19.944] [DEBUG] [1025752] debug point 2
+[2026-06-18 19:22:19.944] [DEBUG] [1025752] debug point 3
