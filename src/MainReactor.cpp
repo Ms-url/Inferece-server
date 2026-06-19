@@ -135,7 +135,7 @@ void MainReactor::addFd(int fd){
  * 移除fd
  */
 void MainReactor::removeFd(int fd) {
-    LOG_INFO("Removing fd %d", fd);
+    LOG_INFO("MainReactor Removing fd %d", fd);
     
     epoll_ctl(epoll_fd_, EPOLL_CTL_DEL, fd, nullptr);
     close(fd);
@@ -202,7 +202,7 @@ void MainReactor::readHandled(int fd){
             std::cout << "连接关闭: fd=" << fd << std::endl;
             th_decoder->removeFd(fd);
             removeFd(fd);
-            break;
+            return;
         } else {
             if (errno != EAGAIN && errno != EWOULDBLOCK) {
                 std::cerr << "读取错误: fd=" << fd << std::endl;

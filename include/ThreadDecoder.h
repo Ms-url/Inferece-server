@@ -13,6 +13,7 @@
 #include <sys/socket.h>
 #include <fcntl.h>
 #include <arpa/inet.h>
+#include <memory>
 
 extern "C" {
 #include <libavformat/avformat.h>
@@ -41,42 +42,6 @@ struct PacketHeader {
     uint64_t timestamp;  // 毫秒, 网络序
 } __attribute__((packed));
 
-// 解码器
-struct StreamDecoder
-{
-    AVCodecContext* decoder_ctx;
-    SwsContext* sws_ctx;
-    AVFrame* frame = nullptr;
-    AVPacket* pkt = nullptr;
-
-    // 禁止拷贝（防止浅拷贝 double free）
-    StreamDecoder(const StreamDecoder&) = delete;
-    StreamDecoder& operator=(const StreamDecoder&) = delete;
-
-    // 移动构造，允许移动
-    StreamDecoder(StreamDecoder&& other) noexcept
-        : decoder_ctx(other.decoder_ctx), sws_ctx(other.sws_ctx), frame(other.frame), pkt(other.pkt)
-        {
-        other.decoder_ctx = nullptr;
-        other.sws_ctx = nullptr;
-        other.frame = nullptr;
-        other.pkt = nullptr;
-    }
-
-    // 构造函数
-    StreamDecoder(AVCodecContext* decoder_ctx, SwsContext* sws_ctx, AVFrame* frame, AVPacket* pkt)
-        : decoder_ctx(decoder_ctx), sws_ctx(sws_ctx),frame(frame), pkt(pkt) {}
-
-    // 析构时释放资源
-    ~StreamDecoder()
-    {
-        if (decoder_ctx) avcodec_free_context(&decoder_ctx);
-        if (sws_ctx) sws_freeContext(sws_ctx);
-        if (frame) av_frame_free(&frame);
-        if (pkt) av_packet_free(&pkt);
-    }
-};
-
 struct VideoFrame {
     int fd;              // 哪路流
     uint64_t timestamp;  // 时间戳
@@ -89,10 +54,14 @@ private:
     FdThreadPool* tp_; //解码线程池
 
     // 解码器
-    std::mutex mtx_m; // mutexes_专属锁
-    std::map<int, std::unique_ptr<StreamDecoder>> decoders_;
+    std::mutex mtx_map; // map 锁
+    std::map<int, AVCodecContext*> decoders_;
+    std::map<int, AVFrame*> frames_;
+    std::map<int, AVPacket*> pkts_;
+    std::map<int, SwsContext*> sws_ctxs_;
     std::map<int, std::shared_ptr<std::mutex>> mutexes_; // decode锁
 
+    std::map<int, DropOldQueue<std::vector<uint8_t>>> fd_nalu_;   // <fd,等待解码队列>
     DropOldQueue<VideoFrame> frame_queue_;   // 解码完成队列
 
     bool initDecoder(int fd);

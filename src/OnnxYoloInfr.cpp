@@ -279,6 +279,7 @@ void OnnxYoloInfr::nms(std::vector<Detection>& dets, float iou_thresh) {
     result.reserve(dets.size());
     for (size_t i = 0; i < dets.size(); ++i) {
         if (!removed[i]) {
+            LOG_DEBUG("ADD BOX: cls: %d", dets[i].class_id);
             result.push_back(std::move(dets[i]));
         }
     }

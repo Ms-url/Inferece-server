@@ -12,31 +12,24 @@ ThreadDecoder::ThreadDecoder()
  * 析构
  */
 ThreadDecoder::~ThreadDecoder(){
-    LOG_INFO("OnnxYoloInfr destructor called");
+    LOG_INFO("ThreadDecoder destructor called");
 
     // 收集所有 fd
     std::vector<int> fds;
     for (const auto& [fd, _] : decoders_) {
         fds.push_back(fd);
     }
-    LOG_DEBUG("Cleaning up %zu decoders", fds.size());
-    
     // 逐个删
     for (int fd : fds) {
-        {
-            std::lock_guard lock(*mutexes_[fd]);
-            decoders_.erase(fd);
-            LOG_DEBUG("Removed decoder for fd %d", fd);
-        }  
-        std::lock_guard<std::mutex> lock(mtx_m); // mutexes锁
-        mutexes_.erase(fd);  
+        removeFd(fd);
     }
+    LOG_DEBUG("Cleaning up %zu decoders", fds.size());
 
     delete(tp_); // 删除线程池
     LOG_DEBUG("Thread pool deleted");
     
     avformat_network_deinit();
-    LOG_INFO("OnnxYoloInfr cleanup complete");
+    LOG_INFO("ThreadDecoder cleanup complete");
 }
 
 
@@ -46,37 +39,30 @@ ThreadDecoder::~ThreadDecoder(){
  * 不然 解码器已经被删了 会出错
  */ 
 bool ThreadDecoder::removeFd(int fd){
-    LOG_INFO("Removing fd %d from OnnxYoloInfr", fd);
-    
+    LOG_INFO("Removing fd %d from ThreadDecoder", fd);
+
     // 清除线程池待执行队列中的 fd 的任务
     int removed_tasks = tp_->removeFdTask(fd);
     if (removed_tasks > 0) {
         LOG_DEBUG("Removed %d pending tasks for fd %d from thread pool", removed_tasks, fd);
     }
 
-    LOG_DEBUG("debug point 1");
-
-    // 拿到这个 fd 的 mutex
-    auto it = mutexes_.find(fd);
-    if (it == mutexes_.end()) {
-        LOG_WARNING("fd %d not found in mutexes map", fd);
-        return false;
-    }
-
-    LOG_DEBUG("debug point 2");
-    
     {
-        std::lock_guard<std::mutex> lock(*(it->second));  // decode锁住
-        LOG_DEBUG("debug point 3");
+        std::lock_guard<std::mutex> lock(mtx_map);
+        auto it = decoders_.find(fd);
+        if (it!=decoders_.end()){
+            if (sws_ctxs_[fd]) sws_freeContext(sws_ctxs_[fd]);
+            av_frame_free(&frames_[fd]);
+            av_packet_free(&pkts_[fd]);
+            avcodec_free_context(&decoders_[fd]);
+        }
         decoders_.erase(fd);
-        LOG_DEBUG("Decoder for fd %d removed", fd);
+        frames_.erase(fd);
+        pkts_.erase(fd);
+        sws_ctxs_.erase(fd);
     }
 
-    LOG_DEBUG("debug point 4");
-    
-    std::lock_guard<std::mutex> lock(mtx_m); // mutexes专属锁
-    mutexes_.erase(fd);
-    LOG_INFO("fd %d successfully removed from OnnxYoloInfr", fd);
+    LOG_INFO("fd %d successfully removed from ThreadDecoder", fd);
     return true;
 }
 
@@ -85,174 +71,176 @@ bool ThreadDecoder::removeFd(int fd){
  * 调该函数必须锁住
  */
 bool ThreadDecoder::initDecoder(int fd) {
-    LOG_DEBUG("Initializing H.264 decoder");
-    AVCodecContext* decoder_ctx; 
-    SwsContext* sws_ctx = nullptr;
- 
-    LOG_INFO("fd %d: Allocating new decoder", fd);
-    bool max_dec;
+    LOG_INFO("Initializing H.264 decoder for fd %d", fd);
 
     auto de_it = decoders_.find(fd);
-    max_dec = decoders_.size() >= MAX_NUM_DECODERS_;
+    bool max_dec = decoders_.size() >= MAX_NUM_DECODERS_;
     
     if (max_dec) {
         LOG_WARNING("fd %d: Max decoders reached (%d), rejecting", fd, MAX_NUM_DECODERS_);
         return false; // 最大解码器数量限制
     }
-    // 为新 fd 创建解码器
+
     const AVCodec* codec = avcodec_find_decoder(AV_CODEC_ID_H264);
     if (!codec) {
-        LOG_ERROR("fd %d: H.264 decoder not found", fd);
+        LOG_ERROR("H.264 decoder not found");
         return false;
     }
-    
-    decoder_ctx = avcodec_alloc_context3(codec);
-    if (!decoder_ctx){
-        LOG_ERROR("fd %d: Failed to allocate decoder context", fd);
+
+    AVCodecContext* dec_ctx = avcodec_alloc_context3(codec);
+    if (!dec_ctx) {
+        LOG_ERROR("Failed to allocate decoder context for fd %d", fd);
         return false;
     }
-    // decoder_ctx->thread_count = 4;
-    decoder_ctx->flags |= AV_CODEC_FLAG_LOW_DELAY;
-    
-    if (avcodec_open2(decoder_ctx, codec, nullptr) < 0) {
-        LOG_ERROR("fd %d: Failed to open decoder", fd);
-        avcodec_free_context(&decoder_ctx);
+
+    if (avcodec_open2(dec_ctx, codec, nullptr) < 0) {
+        LOG_ERROR("Failed to open decoder for fd %d", fd);
+        avcodec_free_context(&dec_ctx);
         return false;
     }
+    LOG_DEBUG("Decoder opened successfully (Annex B mode) for fd %d", fd);
 
     AVFrame* frame = av_frame_alloc();
     AVPacket* pkt = av_packet_alloc();
     if (!frame || !pkt) {
-        LOG_ERROR("Failed to allocate frame or packet");
+        LOG_ERROR("Failed to allocate frame or packet for fd %d", fd);
+        avcodec_free_context(&dec_ctx);
         if (frame) av_frame_free(&frame);
         if (pkt) av_packet_free(&pkt);
-        avcodec_free_context(&decoder_ctx);
         return false;
     }
-    // 加入map
-    decoders_[fd] = std::make_unique<StreamDecoder>(decoder_ctx, sws_ctx, frame, pkt);
-    mutexes_[fd] = std::make_shared<std::mutex>();
-    
-    LOG_INFO("fd %d: Decoder allocated successfully, total decoders: %zu", fd, decoders_.size());
-    
+
+    SwsContext* sws_ctx = nullptr;  // 初始化
+
+    // 存入 map
+    {
+        // 在外面锁住整个函数
+        // std::lock_guard<std::mutex> lock(mtx_map);
+        decoders_[fd] = dec_ctx;
+        frames_[fd] = frame;
+        pkts_[fd] = pkt;
+        sws_ctxs_[fd] = sws_ctx;
+    }
+
+    LOG_INFO("fd %d: Decoder resources allocated, total decoders: %zu", fd, decoders_.size());
     return true;
 }
 
 bool ThreadDecoder::decodeNALU(int fd, std::vector<uint8_t>& data, int len) {
-    LOG_DEBUG("Decoding NALU, data size: %d bytes", len);
+    LOG_DEBUG("decodeNALU entry: fd=%d, data size=%d bytes", fd, len);
 
-    StreamDecoder* decoder = nullptr;
+    AVCodecContext* dec_ctx = nullptr;
+    AVFrame* frame = nullptr;
+    AVPacket* pkt = nullptr;
+    SwsContext* sws_ctx = nullptr;
+
     {
-        std::lock_guard<std::mutex> lock(mtx_m);
+        std::lock_guard<std::mutex> lock(mtx_map);
         auto it = decoders_.find(fd);
         if (it == decoders_.end()) {
-            LOG_DEBUG("Decoder not initialized, initializing now");
+            LOG_DEBUG("Decoder not initialized for fd %d, initializing now", fd);
             if (!initDecoder(fd)) {
-                LOG_ERROR("Failed to initialize decoder");
+                LOG_ERROR("Failed to initialize decoder for fd %d", fd);
                 return false;
             }
-            decoder = decoders_[fd].get();
+            // 重新获取
+            dec_ctx = decoders_[fd];
+            frame = frames_[fd];
+            pkt = pkts_[fd];
+            sws_ctx = sws_ctxs_[fd];
         } else {
-            decoder = it->second.get();
+            dec_ctx = it->second;
+            frame = frames_[fd];
+            pkt = pkts_[fd];
+            sws_ctx = sws_ctxs_[fd];
         }
     }
-    
-    if (!decoder) {
-        LOG_ERROR("Decoder is null for fd %d", fd);
+
+    if (!dec_ctx || !frame || !pkt) {
+        LOG_ERROR("Decoder components are null for fd %d", fd);
         return false;
     }
 
-    AVCodecContext* decoder_ctx = decoder->decoder_ctx;
-    AVFrame* frame = decoder->frame;
-    AVPacket* pkt = decoder->pkt;
-    SwsContext* sws_ctx = decoder->sws_ctx;
-    // YUV → BGR for OpenCV
-    cv::Mat bgr_frame;
-
-    // 检测NALU类型（仅用于日志）
-    int start_code_len = 0;
-    if (len >= 4 && data[0] == 0 && data[1] == 0 && data[2] == 0 && data[3] == 1) {
-        start_code_len = 4;
-    } else if (len >= 3 && data[0] == 0 && data[1] == 0 && data[2] == 1) {
-        start_code_len = 3;
-    }
-    
-    if (start_code_len > 0 && len > start_code_len) {
-        uint8_t nalu_type = data[start_code_len] & 0x1F;
-        switch (nalu_type) {
-            case 5:LOG_DEBUG("===========Received key frame (IDR)");break;
-            case 7:LOG_DEBUG("===========Received SPS (Sequence Parameter Set)");break;
-            case 8:LOG_DEBUG("===========Received PPS (Picture Parameter Set)");break;
-            case 1:LOG_DEBUG("===========Received non-IDR frame");break;
-            default:LOG_DEBUG("===========Received NALU type: %d", nalu_type);break;
-        }
-    } else {
-        LOG_WARNING("Invalid NALU: no start code found, len=%d", len);
-    }
-
+    // 准备 packet
     pkt->data = data.data();
     pkt->size = data.size();
     pkt->pts = pkt->dts = AV_NOPTS_VALUE;
-    
-    // 发送到解码器
-    int ret = avcodec_send_packet(decoder_ctx, pkt);
-    av_packet_unref(pkt);  // 发送后立即释放引用
+    LOG_DEBUG("Packet prepared: size=%d", pkt->size);
+
+    // 发送 packet
+    int ret = avcodec_send_packet(dec_ctx, pkt);
+    av_packet_unref(pkt);  // 引用计数减1，不影响 data 指向的外部内存
     if (ret < 0 && ret != AVERROR(EAGAIN)) {
-        std::cerr << "send_packet error: " << ret << std::endl;
+        LOG_ERROR("avcodec_send_packet failed: %d", ret);
         return false;
     }
+    LOG_DEBUG("Packet sent to decoder, ret=%d", ret);
 
-    bool has_frame = false;
+    cv::Mat bgr_frame;
     int frame_count = 0;
-    while (true) {
-        ret = avcodec_receive_frame(decoder_ctx, frame);
-        if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
-            break;
-        } else if (ret < 0) {
-            char errbuf[AV_ERROR_MAX_STRING_SIZE];
-            av_strerror(ret, errbuf, sizeof(errbuf));
-            LOG_ERROR("Failed to receive frame: %s", errbuf);
-            break;
-        }
-        
-        has_frame = true;
-        frame_count++;
-        LOG_DEBUG("Received decoded frame #%d, size: %dx%d", 
-                  frame_count, frame->width, frame->height);
-        
-        if (!sws_ctx) {
-            sws_ctx = sws_getContext(
-                frame->width, frame->height, (AVPixelFormat)frame->format,
-                frame->width, frame->height, AV_PIX_FMT_BGR24,
-                SWS_BILINEAR, nullptr, nullptr, nullptr
-            );
-            if (!sws_ctx) {
-                LOG_ERROR("fd %d: Failed to create sws context", fd);
-                av_packet_unref(pkt);
-                av_packet_free(&pkt);
-                av_frame_free(&frame);
-                return false;
-            }
-            LOG_DEBUG("fd %d: SWS context created for %dx%d", fd, frame->width, frame->height);
-            bgr_frame.create(frame->height, frame->width, CV_8UC3);
-        }
-        
-        uint8_t* dest_data[1] = { bgr_frame.data };
-        int dest_stride[1] = { (int)bgr_frame.step[0] };
-        sws_scale(sws_ctx, frame->data, frame->linesize, 0, frame->height,
-                    dest_data, dest_stride);
-        
-        frame_queue_.push(std::move(VideoFrame{fd, 0, bgr_frame}));
 
+    // 循环接收帧
+    while (true) {
+        ret = avcodec_receive_frame(dec_ctx, frame);
+        if (ret == AVERROR(EAGAIN)) {
+            LOG_DEBUG("No more frames available now (EAGAIN)");
+            break;
+        }
+        if (ret == AVERROR_EOF) {
+            LOG_DEBUG("End of stream reached");
+            break;
+        }
+        if (ret < 0) {
+            LOG_ERROR("avcodec_receive_frame error: %d", ret);
+            break;
+        }
+
+        frame_count++;
+        LOG_DEBUG("Frame #%d decoded: %dx%d, format=%d", 
+                  frame_count, frame->width, frame->height, frame->format);
+
+        // 初始化颜色转换上下文（懒加载）
+        if (!sws_ctx) {
+            LOG_DEBUG("Creating SwsContext for fd %d (width=%d, height=%d)", 
+                      fd, frame->width, frame->height);
+            sws_ctx = sws_getContext(frame->width, frame->height,
+                                     (AVPixelFormat)frame->format,
+                                     frame->width, frame->height,
+                                     AV_PIX_FMT_BGR24,
+                                     SWS_BILINEAR, nullptr, nullptr, nullptr);
+            if (!sws_ctx) {
+                LOG_ERROR("sws_getContext failed for fd %d", fd);
+                av_frame_unref(frame);
+                break;
+            }
+            // 存入 map，供后续使用
+            {
+                std::lock_guard<std::mutex> lock(mtx_map);
+                sws_ctxs_[fd] = sws_ctx;
+            }
+        }
+
+        // 创建 BGR 图像并转换
+        bgr_frame.create(frame->height, frame->width, CV_8UC3);
+        uint8_t* dst_data[1] = { bgr_frame.data };
+        int dst_stride[1] = { static_cast<int>(bgr_frame.step[0]) };
+        sws_scale(sws_ctx, frame->data, frame->linesize, 0, frame->height,
+                  dst_data, dst_stride);
+        LOG_DEBUG("YUV->BGR conversion done for frame #%d", frame_count);
+
+        // 推入队列（注意：VideoFrame 构造可能需调整）
+        frame_queue_.push(VideoFrame{fd, 0, std::move(bgr_frame)});
+        LOG_DEBUG("Frame #%d pushed to queue, queue size now %zu", 
+                  frame_count, frame_queue_.size());
+
+        // 清理帧引用
         av_frame_unref(frame);
     }
-    
-    if (frame_count > 0) {
-        LOG_DEBUG("Decoded %d frames from NALU", frame_count);
-    }
-    
-    return has_frame;
+
+    LOG_DEBUG("decodeNALU exit: fd=%d, total frames decoded in this call=%d", fd, frame_count);
+    return true;
 }
+
 
 void ThreadDecoder::processBuffer(int fd, std::vector<uint8_t>& buffer) {
     LOG_DEBUG("fd %d: Processing buffer, size: %zu bytes", fd, buffer.size());
@@ -305,8 +293,7 @@ void ThreadDecoder::processBuffer(int fd, std::vector<uint8_t>& buffer) {
             continue;
         }
 
-        std::cout << "Received packet: len=" << nalu_len << ", flags=0x"
-                << std::hex << (int)flags << std::dec << ", ts=" << timestamp_ms << std::endl;
+        LOG_INFO("Received packet: len=%d, flags=0x%02X, ts=%llu", nalu_len, (unsigned int)flags, timestamp_ms);
         
         decodeNALU(fd, nalu_data, nalu_len);
         processed_nalus++;
@@ -328,7 +315,7 @@ void ThreadDecoder::processBuffer(int fd, std::vector<uint8_t>& buffer) {
  * 
  */ 
 void ThreadDecoder::decodeTaskAdd(int fd, std::vector<uint8_t>& buffer){
-    LOG_DEBUG("fd %d: Adding decode task to thread pool", fd);
+    LOG_DEBUG("fd %d: Adding decode task ", fd);
     
     processBuffer(fd, buffer);
     
