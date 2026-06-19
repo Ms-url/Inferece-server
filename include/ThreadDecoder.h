@@ -61,11 +61,11 @@ private:
     std::map<int, SwsContext*> sws_ctxs_;
     std::map<int, std::shared_ptr<std::mutex>> mutexes_; // decode锁
 
-    std::map<int, DropOldQueue<std::vector<uint8_t>>> fd_nalu_;   // <fd,等待解码队列>
+    std::map<int, std::shared_ptr<DropOldQueue<std::vector<uint8_t>>>> fd_nalu_;   // <fd,等待解码队列>
     DropOldQueue<VideoFrame> frame_queue_;   // 解码完成队列
 
     bool initDecoder(int fd);
-    bool decodeNALU(int fd,  std::vector<uint8_t>& data, int len);
+    bool decodeNALU(int fd, int len, uint64_t timestamp_ms);
     void processBuffer(int fd, std::vector<uint8_t>& buffer);
 
 public:

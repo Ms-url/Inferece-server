@@ -11,7 +11,7 @@ class DropOldQueue {
     std::condition_variable cv_;
 
 public:
-    DropOldQueue(size_t max_size) : max_size_(max_size) {}
+    DropOldQueue(size_t max_size = 12) : max_size_(max_size) {}
 
     // 满了自动丢最旧的
     void push(T&& item) {

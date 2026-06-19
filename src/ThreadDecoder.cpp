@@ -51,6 +51,7 @@ bool ThreadDecoder::removeFd(int fd){
         std::lock_guard<std::mutex> lock(mtx_map);
         auto it = decoders_.find(fd);
         if (it!=decoders_.end()){
+            std::lock_guard lock(*mutexes_[fd]); // 锁住解码器，防止进入解码
             if (sws_ctxs_[fd]) sws_freeContext(sws_ctxs_[fd]);
             av_frame_free(&frames_[fd]);
             av_packet_free(&pkts_[fd]);
@@ -120,22 +121,29 @@ bool ThreadDecoder::initDecoder(int fd) {
         frames_[fd] = frame;
         pkts_[fd] = pkt;
         sws_ctxs_[fd] = sws_ctx;
+        mutexes_[fd] = std::make_shared<std::mutex>();
     }
 
     LOG_INFO("fd %d: Decoder resources allocated, total decoders: %zu", fd, decoders_.size());
     return true;
 }
 
-bool ThreadDecoder::decodeNALU(int fd, std::vector<uint8_t>& data, int len) {
+/**
+ * 解码nalu，用于插入线程池
+ */
+bool ThreadDecoder::decodeNALU(int fd, int len, uint64_t timestamp_ms) {
     LOG_DEBUG("decodeNALU entry: fd=%d, data size=%d bytes", fd, len);
+
+    std::vector<uint8_t> data = (*fd_nalu_[fd]).pop();
 
     AVCodecContext* dec_ctx = nullptr;
     AVFrame* frame = nullptr;
     AVPacket* pkt = nullptr;
     SwsContext* sws_ctx = nullptr;
+    std::shared_ptr<std::mutex> mtx_dec;
 
     {
-        std::lock_guard<std::mutex> lock(mtx_map);
+        std::lock_guard<std::mutex> lock(mtx_map); // map 锁
         auto it = decoders_.find(fd);
         if (it == decoders_.end()) {
             LOG_DEBUG("Decoder not initialized for fd %d, initializing now", fd);
@@ -143,7 +151,7 @@ bool ThreadDecoder::decodeNALU(int fd, std::vector<uint8_t>& data, int len) {
                 LOG_ERROR("Failed to initialize decoder for fd %d", fd);
                 return false;
             }
-            // 重新获取
+            // 获取
             dec_ctx = decoders_[fd];
             frame = frames_[fd];
             pkt = pkts_[fd];
@@ -154,8 +162,12 @@ bool ThreadDecoder::decodeNALU(int fd, std::vector<uint8_t>& data, int len) {
             pkt = pkts_[fd];
             sws_ctx = sws_ctxs_[fd];
         }
+        // 解码器专属锁
+        mtx_dec = mutexes_[fd];
     }
 
+    std::lock_guard lock(*mtx_dec); // 锁住解码流程
+    // 抢到锁后，先检查该解码器是否被删除
     if (!dec_ctx || !frame || !pkt) {
         LOG_ERROR("Decoder components are null for fd %d", fd);
         return false;
@@ -228,8 +240,8 @@ bool ThreadDecoder::decodeNALU(int fd, std::vector<uint8_t>& data, int len) {
                   dst_data, dst_stride);
         LOG_DEBUG("YUV->BGR conversion done for frame #%d", frame_count);
 
-        // 推入队列（注意：VideoFrame 构造可能需调整）
-        frame_queue_.push(VideoFrame{fd, 0, std::move(bgr_frame)});
+        // 推入队列
+        frame_queue_.push(VideoFrame{fd, timestamp_ms, std::move(bgr_frame)});
         LOG_DEBUG("Frame #%d pushed to queue, queue size now %zu", 
                   frame_count, frame_queue_.size());
 
@@ -241,7 +253,9 @@ bool ThreadDecoder::decodeNALU(int fd, std::vector<uint8_t>& data, int len) {
     return true;
 }
 
-
+/**
+ * 从缓冲区中读取nalu，读取到完整nalu后插入线程池
+ */
 void ThreadDecoder::processBuffer(int fd, std::vector<uint8_t>& buffer) {
     LOG_DEBUG("fd %d: Processing buffer, size: %zu bytes", fd, buffer.size());
     
@@ -294,8 +308,11 @@ void ThreadDecoder::processBuffer(int fd, std::vector<uint8_t>& buffer) {
         }
 
         LOG_INFO("Received packet: len=%d, flags=0x%02X, ts=%llu", nalu_len, (unsigned int)flags, timestamp_ms);
-        
-        decodeNALU(fd, nalu_data, nalu_len);
+
+        // 加入nalu等待队列
+        (*fd_nalu_[fd]).push(std::move(nalu_data));
+        decodeNALU(fd, nalu_len, timestamp_ms);
+
         processed_nalus++;
         pos += (headerSize + nalu_len);
     }
@@ -312,18 +329,23 @@ void ThreadDecoder::processBuffer(int fd, std::vector<uint8_t>& buffer) {
 }
 
 /**
- * 
+ * 从缓冲区读取数据并将解码操作插入线程池
  */ 
 void ThreadDecoder::decodeTaskAdd(int fd, std::vector<uint8_t>& buffer){
     LOG_DEBUG("fd %d: Adding decode task ", fd);
-    
+
+    auto it = fd_nalu_.find(fd);
+    if (it == fd_nalu_.end()){
+        // 初始化该 fd 的 nalu 等待队列
+        fd_nalu_[fd] = std::make_shared<DropOldQueue<std::vector<uint8_t>>>(12);
+    }
     processBuffer(fd, buffer);
     
     // 检查解码器状态
     if (buffer.size() > 1024 * 1024) {  // 缓冲超过1MB
         /**
          * 清除缓冲 / 丢弃帧
-         *  */ 
+         * */ 
         LOG_WARNING("fd %d: Buffer size growing large: %zu bytes", fd, buffer.size());
     }
 }
