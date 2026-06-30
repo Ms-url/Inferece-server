@@ -311,7 +311,10 @@ void ThreadDecoder::processBuffer(int fd, std::vector<uint8_t>& buffer) {
 
         // 加入nalu等待队列
         (*fd_nalu_[fd]).push(std::move(nalu_data));
-        decodeNALU(fd, nalu_len, timestamp_ms);
+        // 解码插入线程池
+        tp_->Submit(fd, [this, fd, nalu_len, timestamp_ms]{
+            decodeNALU(fd, nalu_len, timestamp_ms);
+        });
 
         processed_nalus++;
         pos += (headerSize + nalu_len);
